@@ -1,0 +1,9 @@
+# 壁紙があるフォルダ（複数可）
+image_dirs:
+  - 'C:\Users\UserA\Desktop\Wallpapers'
+
+# 壁紙の明るさ (0.0～2.0 : 1.0は明るさ100%)
+brightness: 0.8
+
+# テンポラリファイル名（Windows の %TEMP% に保存される）
+temp_filename: 'wallpaper_temp.png'
