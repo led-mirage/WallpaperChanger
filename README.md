@@ -12,6 +12,7 @@ Windows の壁紙をランダムに変更するためのシンプルなコマン
 * 対応している拡張子は ".jpg", ".jpeg", ".png", ".bmp", ".webp"
 * ランダムで 1 枚選択
 * 明るさ調整（元画像は変更しません）
+* ファイル情報オーバーレイ描画機能（元画像は変更しません）
 * TEMP フォルダに一時画像を保存してから適用
 * 壁紙の配置方法は **Windows 側の設定をそのまま使用**
 * 設定ファイル（YAML）または **ワンライナー実行** の両方に対応
@@ -61,10 +62,11 @@ config/
 
 ### 1. 設定ファイル方式で使う（通常）
 
-`config/config.yaml` を編集します。
+最初に `config/config.yaml` を編集します。
+`image_dirs` の値を画像があるフォルダのパスに置き換えてください。
 
 ```yaml
-# 壁紙があるフォルダ（複数可）
+# 壁紙があるフォルダ（複数指定可）
 image_dirs:
   - 'C:\Users\UserA\Desktop\Wallpapers'
   - 'C:\MyData\Images'
@@ -74,6 +76,14 @@ brightness: 0.8
 
 # テンポラリファイル名（Windows の %TEMP% に保存される）
 temp_filename: 'wallpaper_temp.png'
+
+# 画像上に表示するテキストオーバーレイの設定
+overlay:
+  enabled: false        # オーバーレイ表示の有効/無効
+  text: filename        # filename | parent_and_filename | fullpath
+  font_size: 16         # px（int）
+  margin_x: 50          # 右端からの余白（px）
+  margin_y: 100         # 下端からの余白（px）
 ```
 
 #### 実行
@@ -87,12 +97,15 @@ WallpaperChanger.exe config/config.yaml
 設定ファイルがなくても、`--dir` を指定すれば実行できます。
 
 ```powershell
+# サンプル
 WallpaperChanger.exe --dir "C:/Pictures" --dir "D:/Wallpapers" --brightness 0.8 --temp temp.png
 ```
 
 * `--dir` は壁紙があるフォルダ（複数指定できます）
 * `--brightness` は 0.0〜2.0（省略時 1.0）
 * `--temp` は TEMP に保存するファイル名（省略時 wallpaper_temp.png）
+
+※ `WallpaperChanger.exe` を引数なしで実行すると、使用できるオプションの完全なリストと説明が表示されます。
 
 ### 3. 自動実行したい場合
 
@@ -152,7 +165,7 @@ python src/main.py --dir "C:/Pictures" --brightness 0.8
 
 エラーが発生すると `error.log` にエラーが記録されます。  
 設定ファイル方式で実行した場合は、設定ファイルと同じフォルダに `error.log` が生成されます。  
-コマンドライン引数方式で実行した場合は `WallpaperChanger.exe` と同じフォルダに生成されます。
+コマンドライン引数方式で実行した場合は カレントフォルダに生成されます。
 
 例：
 
