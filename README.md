@@ -202,7 +202,7 @@ build_tools\build.bat
 もし気になる場合は、本README内の  
 **「Python 版の使い方（開発者向け）」に沿って、ソースコードから直接実行する方法をおすすめします。**
 
-VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/65d3bb31c6e61a721b4a1cdca93de1487a3c2b64f455c8230492f0c3d0cda6f5/detection) から確認できます。  
+VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/2f9425bc599bd7b3e18128119ebc94c413b32acda86522ae60a2d90b898e9db9/detection) から確認できます。  
 （72個中3個のアンチウィルスエンジンで検出 :2026/02/14 v1.1.0）
 
 
