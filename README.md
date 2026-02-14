@@ -42,6 +42,8 @@ WallpaperChanger/
    └─ 仕様.md
 ```
 
+<div class="page" />
+
 ## 🖥️ 動作環境
 
 - Windows 11
@@ -135,6 +137,8 @@ WallpaperChanger.exe --dir "C:/Pictures" --dir "D:/Wallpapers" --brightness 0.8 
     開始： `task_wallpaper.js`があるフォルダパス
 5. 「トリガー」で実行タイミングを選ぶ
 
+<div class="page" />
+
 ## 🧰 Python 版の使い方（開発者向け）
 
 Python版も起動方法が変わるだけで、基本的な使い方はEXE版と同じです。
@@ -184,6 +188,8 @@ build_tools\build.bat
 
 実行すると `dist/WallpaperChanger.exe` が生成されます。
 
+<div class="page" />
+
 ## ⚠️ ウイルス対策ソフトの誤検知について
 
 本アプリの EXE 版は **PyInstaller** で生成されていますが、
@@ -222,6 +228,7 @@ EXE 版の作成時に必要です（EXEファイルにバージョン情報を�
 ライセンス：MIT license  
 [https://github.com/DudeNr33/pyinstaller-versionfile](https://github.com/DudeNr33/pyinstaller-versionfile)
 
+<div class="page" />
 
 ## ❗ 免責事項
 
