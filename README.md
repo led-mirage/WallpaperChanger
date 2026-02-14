@@ -1,6 +1,6 @@
 # Wallpaper Changer
 
-© 2025 led-mirage
+© 2025-2026 led-mirage
 
 Windows の壁紙をランダムに変更するためのシンプルなコマンドラインツールです。  
 指定した複数フォルダから画像を選び、明るさを調整して壁紙として適用します。
@@ -49,7 +49,7 @@ WallpaperChanger/
 
 ## 📦 EXE 版の使い方（一般ユーザー向け）
 
-Release から ZIP をダウンロードして展開すると、以下が含まれています。
+[Releases](https://github.com/led-mirage/WallpaperChanger/releases) から ZIP をダウンロードして展開すると、以下が含まれています。
 
 ```
 WallpaperChanger.exe  …　プログラム本体
@@ -196,13 +196,13 @@ build_tools\build.bat
 もし気になる場合は、本README内の  
 **「Python 版の使い方（開発者向け）」に沿って、ソースコードから直接実行する方法をおすすめします。**
 
-VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/43f439f99da66bf3237f78ff48626fb84d6def29c0750fea7374b6bca9bf5ac8/detection) から確認できます。  
-（72個中3個のアンチウィルスエンジンで検出 :2025/12/11 v1.0.0）
+VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/65d3bb31c6e61a721b4a1cdca93de1487a3c2b64f455c8230492f0c3d0cda6f5/detection) から確認できます。  
+（72個中3個のアンチウィルスエンジンで検出 :2026/02/14 v1.1.0）
 
 
 ## 📚 使用しているライブラリ
 
-### 🔖 **Pillow 12.0.0**
+### 🔖 **Pillow 12.1.1**
 画像の明るさ調整に使用しています  
 ライセンス： MIT-CMUライセンス  
 [https://github.com/python-pillow/Pillow](https://github.com/python-pillow/Pillow)
@@ -235,6 +235,11 @@ EXE 版の作成時に必要です（EXEファイルにバージョン情報を�
 詳しくは `LICENSE` を参照してください。
 
 ## 📜 バージョン履歴
+
+### 1.1.0 (2026/02/14)
+
+- ファイル名を画像の上にオーバーレイ表示する機能を追加
+- pillowのバージョンを12.1.1に更新（CVE-2026-25990対応
 
 ### 1.0.0 (2025/12/13)
 
