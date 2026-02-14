@@ -1,6 +1,6 @@
 # Wallpaper Changer
 
-© 2025 led-mirage
+© 2025-2026 led-mirage
 
 Windows の壁紙をランダムに変更するためのシンプルなコマンドラインツールです。  
 指定した複数フォルダから画像を選び、明るさを調整して壁紙として適用します。
@@ -12,6 +12,7 @@ Windows の壁紙をランダムに変更するためのシンプルなコマン
 * 対応している拡張子は ".jpg", ".jpeg", ".png", ".bmp", ".webp"
 * ランダムで 1 枚選択
 * 明るさ調整（元画像は変更しません）
+* ファイル情報オーバーレイ描画機能（元画像は変更しません）
 * TEMP フォルダに一時画像を保存してから適用
 * 壁紙の配置方法は **Windows 側の設定をそのまま使用**
 * 設定ファイル（YAML）または **ワンライナー実行** の両方に対応
@@ -41,6 +42,8 @@ WallpaperChanger/
    └─ 仕様.md
 ```
 
+<div class="page" />
+
 ## 🖥️ 動作環境
 
 - Windows 11
@@ -48,7 +51,7 @@ WallpaperChanger/
 
 ## 📦 EXE 版の使い方（一般ユーザー向け）
 
-Release から ZIP をダウンロードして展開すると、以下が含まれています。
+[Releases](https://github.com/led-mirage/WallpaperChanger/releases) から ZIP をダウンロードして展開すると、以下が含まれています。
 
 ```
 WallpaperChanger.exe  …　プログラム本体
@@ -61,10 +64,11 @@ config/
 
 ### 1. 設定ファイル方式で使う（通常）
 
-`config/config.yaml` を編集します。
+最初に `config/config.yaml` を編集します。
+`image_dirs` の値を画像があるフォルダのパスに置き換えてください。
 
 ```yaml
-# 壁紙があるフォルダ（複数可）
+# 壁紙があるフォルダ（複数指定可）
 image_dirs:
   - 'C:\Users\UserA\Desktop\Wallpapers'
   - 'C:\MyData\Images'
@@ -74,6 +78,14 @@ brightness: 0.8
 
 # テンポラリファイル名（Windows の %TEMP% に保存される）
 temp_filename: 'wallpaper_temp.png'
+
+# 画像上に表示するテキストオーバーレイの設定
+overlay:
+  enabled: false        # オーバーレイ表示の有効/無効
+  text: filename        # filename | parent_and_filename | fullpath
+  font_size: 16         # px（int）
+  margin_x: 50          # 右端からの余白（px）
+  margin_y: 100         # 下端からの余白（px）
 ```
 
 #### 実行
@@ -87,12 +99,15 @@ WallpaperChanger.exe config/config.yaml
 設定ファイルがなくても、`--dir` を指定すれば実行できます。
 
 ```powershell
+# サンプル
 WallpaperChanger.exe --dir "C:/Pictures" --dir "D:/Wallpapers" --brightness 0.8 --temp temp.png
 ```
 
 * `--dir` は壁紙があるフォルダ（複数指定できます）
 * `--brightness` は 0.0〜2.0（省略時 1.0）
 * `--temp` は TEMP に保存するファイル名（省略時 wallpaper_temp.png）
+
+※ `WallpaperChanger.exe` を引数なしで実行すると、使用できるオプションの完全なリストと説明が表示されます。
 
 ### 3. 自動実行したい場合
 
@@ -121,6 +136,8 @@ WallpaperChanger.exe --dir "C:/Pictures" --dir "D:/Wallpapers" --brightness 0.8 
     引数： `task_wallpaper.js`
     開始： `task_wallpaper.js`があるフォルダパス
 5. 「トリガー」で実行タイミングを選ぶ
+
+<div class="page" />
 
 ## 🧰 Python 版の使い方（開発者向け）
 
@@ -152,7 +169,7 @@ python src/main.py --dir "C:/Pictures" --brightness 0.8
 
 エラーが発生すると `error.log` にエラーが記録されます。  
 設定ファイル方式で実行した場合は、設定ファイルと同じフォルダに `error.log` が生成されます。  
-コマンドライン引数方式で実行した場合は `WallpaperChanger.exe` と同じフォルダに生成されます。
+コマンドライン引数方式で実行した場合は カレントフォルダに生成されます。
 
 例：
 
@@ -171,6 +188,8 @@ build_tools\build.bat
 
 実行すると `dist/WallpaperChanger.exe` が生成されます。
 
+<div class="page" />
+
 ## ⚠️ ウイルス対策ソフトの誤検知について
 
 本アプリの EXE 版は **PyInstaller** で生成されていますが、
@@ -183,13 +202,13 @@ build_tools\build.bat
 もし気になる場合は、本README内の  
 **「Python 版の使い方（開発者向け）」に沿って、ソースコードから直接実行する方法をおすすめします。**
 
-VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/43f439f99da66bf3237f78ff48626fb84d6def29c0750fea7374b6bca9bf5ac8/detection) から確認できます。  
-（72個中3個のアンチウィルスエンジンで検出 :2025/12/11 v1.0.0）
+VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/2f9425bc599bd7b3e18128119ebc94c413b32acda86522ae60a2d90b898e9db9/detection) から確認できます。  
+（72個中3個のアンチウィルスエンジンで検出 :2026/02/14 v1.1.0）
 
 
 ## 📚 使用しているライブラリ
 
-### 🔖 **Pillow 12.0.0**
+### 🔖 **Pillow 12.1.1**
 画像の明るさ調整に使用しています  
 ライセンス： MIT-CMUライセンス  
 [https://github.com/python-pillow/Pillow](https://github.com/python-pillow/Pillow)
@@ -209,6 +228,7 @@ EXE 版の作成時に必要です（EXEファイルにバージョン情報を�
 ライセンス：MIT license  
 [https://github.com/DudeNr33/pyinstaller-versionfile](https://github.com/DudeNr33/pyinstaller-versionfile)
 
+<div class="page" />
 
 ## ❗ 免責事項
 
@@ -222,6 +242,11 @@ EXE 版の作成時に必要です（EXEファイルにバージョン情報を�
 詳しくは `LICENSE` を参照してください。
 
 ## 📜 バージョン履歴
+
+### 1.1.0 (2026/02/14)
+
+- ファイル名を画像の上にオーバーレイ表示する機能を追加
+- pillowのバージョンを12.1.1に更新（CVE-2026-25990対応
 
 ### 1.0.0 (2025/12/13)
 

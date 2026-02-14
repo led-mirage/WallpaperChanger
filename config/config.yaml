@@ -1,4 +1,4 @@
-# 壁紙があるフォルダ（複数可）
+# 壁紙があるフォルダ（複数指定可）
 image_dirs:
   - 'C:\Users\UserA\Desktop\Wallpapers'
 
@@ -7,3 +7,11 @@ brightness: 0.8
 
 # テンポラリファイル名（Windows の %TEMP% に保存される）
 temp_filename: 'wallpaper_temp.png'
+
+# 画像上に表示するテキストオーバーレイの設定
+overlay:
+  enabled: false        # オーバーレイ表示の有効/無効
+  text: filename        # filename | parent_and_filename | fullpath
+  font_size: 16         # px（int）
+  margin_x: 50          # 右端からの余白（px）
+  margin_y: 100         # 下端からの余白（px）
