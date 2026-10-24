@@ -2,7 +2,7 @@
 #
 # メイン
 #
-# Copyright (c) 2025 led-mirage
+# Copyright (c) 2025-2026 led-mirage
 # このソースコードは MITライセンス の下でライセンスされています。
 # ライセンスの詳細については、このプロジェクトのLICENSEファイルを参照してください。
 
@@ -20,8 +20,8 @@ from wallpaper_setter import set_wallpaper
 
 
 APP_NAME = "Wallpaper Changer"
-APP_VERSION = "v1.1.0"
-COPYRIGHT = "© 2025 led-mirage"
+APP_VERSION = "v1.2.0"
+COPYRIGHT = "© 2025-2026 led-mirage"
 
 EXIT_OK = 0
 EXIT_USAGE_ERROR = 1

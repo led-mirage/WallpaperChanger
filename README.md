@@ -202,13 +202,13 @@ build_tools\build.bat
 もし気になる場合は、本README内の  
 **「Python 版の使い方（開発者向け）」に沿って、ソースコードから直接実行する方法をおすすめします。**
 
-VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/2f9425bc599bd7b3e18128119ebc94c413b32acda86522ae60a2d90b898e9db9/detection) から確認できます。  
-（72個中3個のアンチウィルスエンジンで検出 :2026/02/14 v1.1.0）
+VirusTotal でのスキャン結果は [**こちら**](https://www.virustotal.com/gui/file/28d1e40996914aaa04c528c75bc883e6f45f23a65866a8a3773712891461f8c9/detection) から確認できます。  
+（70個中2個のアンチウィルスエンジンで検出 :2026/10/24 v1.2.0）
 
 
 ## 📚 使用しているライブラリ
 
-### 🔖 **Pillow 12.1.1**
+### 🔖 **Pillow 13.0.0**
 画像の明るさ調整に使用しています  
 ライセンス： MIT-CMUライセンス  
 [https://github.com/python-pillow/Pillow](https://github.com/python-pillow/Pillow)
@@ -242,6 +242,10 @@ EXE 版の作成時に必要です（EXEファイルにバージョン情報を�
 詳しくは `LICENSE` を参照してください。
 
 ## 📜 バージョン履歴
+
+### 1.2.0 (2026/10/24)
+
+- 脆弱性対応のためPillowを13.0.0に更新
 
 ### 1.1.0 (2026/02/14)
 
