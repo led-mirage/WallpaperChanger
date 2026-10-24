@@ -1,2 +1,2 @@
-pillow==12.1.1
+pillow==13.0.0
 pyyaml==6.0.3
